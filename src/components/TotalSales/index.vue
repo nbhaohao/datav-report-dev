@@ -14,7 +14,7 @@
         </div>
       </div>
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <span>昨日销售额 </span>
       <span class="emphasis">¥ 30,000,000</span>
     </template>
