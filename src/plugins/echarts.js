@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Echarts from 'echarts'
+import * as Echarts from 'echarts'
 
 const EChartsPlugin = {
   install(Vue, options) {
