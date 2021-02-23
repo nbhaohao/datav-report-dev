@@ -22,6 +22,7 @@ export default {
     const chartDOM = document.querySelector('#today-users-chart')
     const chart = this.$echarts.init(chartDOM)
     chart.setOption({
+      color: ['#0170fe'],
       series: [
         {
           type: 'bar',
