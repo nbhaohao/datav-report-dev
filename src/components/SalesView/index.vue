@@ -167,20 +167,52 @@ export default {
           textStyle: {
             fontSize: 12,
             color: '#666'
-          }
+          },
+          left: 25,
+          top: 20
         },
         xAxis: {
           type: 'category',
-          data: new Array(11).fill('').map((value, index) => `${index + 1}月`)
+          data: new Array(11).fill('').map((value, index) => `${index + 1}月`),
+          axisTick: {
+            alignWithLabel: true,
+            lineStyle: {
+              color: '#999'
+            }
+          },
+          axisLine: {
+            lineStyle: {
+              color: "#999"
+            }
+          },
+          axisLabel: {
+            color: "#333"
+          }
         },
-        yAxis: {},
+        yAxis: {
+          axisLine: {
+            show: false
+          },
+          splitLine: {
+            lineStyle: {
+              type: 'dotted',
+              color: '#eee  '
+            }
+          }
+        },
         series: [
           {
             type: 'bar',
             barWidth: '35%',
             data: [200, 250, 300, 350, 300, 250, 200, 250, 300, 350, 300, 250]
           }
-        ]
+        ],
+        grid: {
+          top: 70,
+          left: 60,
+          right: 60,
+          bottom: 50
+        }
       }
     }
   }
