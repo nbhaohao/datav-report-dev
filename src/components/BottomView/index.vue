@@ -52,7 +52,9 @@
           </div>
         </template>
         <template #default>
-          <v-chart :options="categoryOptions" />
+          <div class="chart-wrapper">
+            <v-chart autoresize :option="categoryOptions" />
+          </div>
         </template>
       </el-card>
     </div>
@@ -123,7 +125,116 @@ export default {
       return {}
     },
     categoryOptions() {
-      return {}
+      const mockData = [
+        {
+          legendName: '粉面粥店',
+          value: 67,
+          percent: '15.40',
+          itemStyle: {
+            color: '#e7e702'
+          },
+          name: '粉面粥店 | 15.40%'
+        },
+        {
+          legendName: '简餐便当',
+          value: 97,
+          percent: '22.30',
+          itemStyle: {
+            color: '#8d7fec'
+          },
+          name: '简餐便当 | 22.30%'
+        },
+        {
+          legendName: '汉堡披萨',
+          value: 92,
+          percent: '21.15',
+          itemStyle: {
+            color: '#5085f2'
+          },
+          name: '汉堡披萨 | 21.15%'
+        }
+      ]
+      return {
+        tooltip: {
+          trigger: 'item',
+          formatter(params) {
+            const str =
+              params.seriesName +
+              '<br />' +
+              params.marker +
+              params.data.legendName +
+              '<br />' +
+              '数量：' +
+              params.data.value +
+              '<br />' +
+              '占比：' +
+              params.data.percent +
+              '%'
+            return str
+          }
+        },
+        legend: {
+          type: 'scroll',
+          orient: 'vertical',
+          height: 250,
+          left: '70%',
+          top: 'middle',
+          textStyle: {
+            color: '#8c8c8c'
+          }
+        },
+        title: [
+          {
+            text: '品类分布',
+            textStyle: {
+              fontSize: 14,
+              color: '#666'
+            },
+            left: 20,
+            top: 20
+          },
+          {
+            text: '累计订单量',
+            subtext: '320',
+            x: '34.5%',
+            y: '42.5%',
+            textAlign: 'center',
+            textStyle: { fontSize: 14, color: '#999' },
+            subtextStyle: {
+              fontSize: 28,
+              color: '#333'
+            }
+          }
+        ],
+        series: [
+          {
+            type: 'pie',
+            data: mockData,
+            name: '品类分布',
+            label: {
+              show: true,
+              position: 'outer',
+              formatter: function(params) {
+                return params.data.legendName
+              }
+            },
+            center: ['35%', '50%'],
+            radius: ['45%', '60%'],
+            labelLine: {
+              normal: {
+                length: 5,
+                length2: 3,
+                smooth: true
+              }
+            },
+            clockwise: false,
+            itemStyle: {
+              borderWidth: 4,
+              borderColor: '#fff'
+            }
+          }
+        ]
+      }
     }
   }
 }
