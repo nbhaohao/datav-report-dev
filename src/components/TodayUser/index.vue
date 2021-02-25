@@ -1,7 +1,7 @@
 <template>
   <common-card title="今日交易用户数" value="81,014">
     <template #default>
-      <v-chart :option="chartOption" />
+      <v-chart autoresize :option="chartOption" />
       <div
         id="today-users-chart"
         :style="{ width: '100%', height: '100%' }"

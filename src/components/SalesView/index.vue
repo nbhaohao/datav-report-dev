@@ -35,7 +35,7 @@
       </template>
       <template>
         <div class="sales-view-chart-wrapper">
-          <v-chart :option="chartOption" />
+          <v-chart autoresize :option="chartOption" />
           <div class="sales-view-list">
             <div class="sales-view-title">排行榜</div>
             <div class="list-item-wrapper">
@@ -182,11 +182,11 @@ export default {
           },
           axisLine: {
             lineStyle: {
-              color: "#999"
+              color: '#999'
             }
           },
           axisLabel: {
-            color: "#333"
+            color: '#333'
           }
         },
         yAxis: {
@@ -250,13 +250,11 @@ export default {
     display: flex;
     height: 270px;
     .echarts {
-      flex: 0 0 70%;
       width: 70%;
       height: 100%;
     }
     .sales-view-list {
-      flex: 1;
-      width: 100%;
+      width: 30%;
       height: 100%;
       overflow: hidden;
       .sales-view-title {
