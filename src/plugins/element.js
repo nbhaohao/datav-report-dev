@@ -24,3 +24,4 @@ Vue.use(DatePicker)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Pagination)
+// 测试 git config 是否生效
